@@ -1,0 +1,20 @@
+{
+    "validateLogin":{
+        "username":"rahulshettyacademy",
+        "password":"Learning@830$3mK2"
+    },
+    "invalidateLogin":{
+        "username":"rahulshettyacademy",
+        "password":"learning"
+    },
+
+  "emptyUsername": {
+    "username": "",
+    "password": "learning"
+  },
+
+  "emptyPassword": {
+    "username": "rahulshettyacademy",
+    "password": ""
+  }
+}
