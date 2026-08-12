@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 
-test.only("all locator", async ({ browser }) => {
+test("all locator", async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
 
