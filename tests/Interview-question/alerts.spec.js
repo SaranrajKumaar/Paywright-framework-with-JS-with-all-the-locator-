@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 
-test("Buttons interaction", async ({ browser }) => {
+test("Buttons interaction @smoke", async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
 
@@ -32,7 +32,7 @@ await page.locator('#prompt-btn').click();
 
 })
 
-test("modal",async({browser})=>{
+test("modal @smoke",async({browser})=>{
         const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto('https://www.sreenidhirajakrishnan.com/practice?utm_source=sp_auto_dm&utm_referrer=sp_auto_dm#section-1');
@@ -42,7 +42,7 @@ test("modal",async({browser})=>{
     await page.locator('#modal-close-btn').click();
 })
 
-test("iframe",async ({browser})=>{
+test("iframe @sanity",async ({browser})=>{
          const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto('https://www.sreenidhirajakrishnan.com/practice?utm_source=sp_auto_dm&utm_referrer=sp_auto_dm#section-1');
@@ -58,7 +58,7 @@ test("iframe",async ({browser})=>{
 
 })
 
-test("shadow Dom",async({browser})=>{
+test("shadow Dom @regression",async({browser})=>{
   const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto('https://www.sreenidhirajakrishnan.com/practice?utm_source=sp_auto_dm&utm_referrer=sp_auto_dm#section-1');

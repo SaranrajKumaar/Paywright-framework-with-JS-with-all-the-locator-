@@ -1,0 +1,19 @@
+{
+  "testCases": [
+    {
+      "scenario": "Valid Login",
+      "companyCode": "ASCENT",
+      "username": "Dev",
+      "password": "123",
+      "expectedResult": "positive"
+    },
+    {
+      "scenario": "Invalid Company Code",
+      "companyCode": "INVALID",
+      "username": "Dev",
+      "password": "123",
+      "expectedResult": "negative",
+      "expectedError": "Company code/name is invalid or inactive."
+    }
+  ]
+}

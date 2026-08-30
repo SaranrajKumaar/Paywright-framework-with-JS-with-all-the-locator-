@@ -1,48 +1,72 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
-const config = ({
+export default defineConfig({
   testDir: './tests',
 
-  timeout: 30 * 1000, //gobal level
-
+  timeout: 30 * 1000,
 
   expect: {
-    timeout: 5000
+    timeout: 5000,
   },
 
   reporter: 'html',
 
   use: {
-    //browser options 
-    browserName: 'chromium',
-    //firefox, webkit, chromium
     headless: false,
-    actionTimeout: 10 * 1000,
-    navigationTimeout: 30 * 1000,
-    screenshot: 'on',
-    trace: 'retain-on-failure',//on //off
-    //window maximize 
-    viewport: null,
-    launchOptions: {
-      args: ['--start-maximized'],
-    },
-    video:'off'
 
+    actionTimeout: 10 * 1000,
+
+    navigationTimeout: 30 * 1000,
+
+    screenshot: 'on',
+
+    trace: 'on',
+
+    video: 'off',
+
+    // Browser viewport
+    viewport: {
+      width: 1920,
+      height: 1080,
+    },
+
+    // Maximize Chrome window
+    launchOptions: {
+      args: [
+        '--start-maximized',
+        '--window-position=0,0',
+        '--window-size=1920,1080',
+      ],
+    },
   },
 
+  projects: [
+    {
+      name: 'chromium',
+      use: {
+        browserName: 'chromium',
+      },
+    },
+    
+    // Uncomment if you need Firefox
+    /*
+    {
+      name: 'firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+      },
+    },
+    */
+
+    // Uncomment if you need WebKit
+    /*
+    {
+      name: 'webkit',
+      use: {
+        ...devices['Desktop Safari'],
+      },
+    },
+    */
+  ],
 });
-
-module.exports = config;
-

@@ -71,6 +71,7 @@ test("all locator", async ({ browser }) => {
         path:"screenshots/homepage.png",
         fullPage:true
     })
+    
 
     //TAB
 
