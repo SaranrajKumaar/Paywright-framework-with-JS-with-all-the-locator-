@@ -1,3 +1,4 @@
+
 // @ts-check
 import { defineConfig } from '@playwright/test';
 
@@ -10,7 +11,11 @@ export default defineConfig({
     timeout: 5000,
   },
 
-  reporter: 'html',
+  // Generate both Playwright HTML and Allure reports
+  reporter: [
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['allure-playwright']
+  ],
 
   use: {
     headless: false,
@@ -48,7 +53,7 @@ export default defineConfig({
         browserName: 'chromium',
       },
     },
-    
+
     // Uncomment if you need Firefox
     /*
     {
@@ -70,3 +75,4 @@ export default defineConfig({
     */
   ],
 });
+

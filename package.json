@@ -4,14 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
- "test": "playwright test"  
-},
+    "test": "playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.61.1",
-    "@types/node": "^26.1.1"
+    "@types/node": "^26.6.4",
+    "allure-playwright": "^3.13.0"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@faker-js/faker": "^10.6.0",
+    "ajv": "^8.20.0",
+    "csv-parse": "^7.0.3",
+    "dotenv": "^18.0.5",
+    "luxon": "^3.7.2",
+    "mysql2": "^3.24.5",
+    "xlsx": "^0.18.5"
   }
 }
