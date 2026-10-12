@@ -121,6 +121,16 @@ APP_PASSWORD=test@123
 API_BASE_URL=https://fakestoreapi.com
 ```
 
+For the Ascent login tests in this repository, add the following settings to `.env` and replace the sample credentials with your own:
+
+```dotenv
+APP_URL=http://192.168.11.31:5173/login
+APP_USERNAME=your-username
+APP_PASSWORD=your-password
+```
+
+`APP_URL` should include the login path. These values are read by `tests/Ascent-Login/Login-page.spec.js`.
+
 > **Security note:** The `.env` file is listed in `.dockerignore`, so it is never baked into the Docker image. It is only used at runtime when you run the container. This means your secrets stay safe.
 
 ### Step 3: Build the Docker Image

@@ -1,9 +1,14 @@
 
 // @ts-check
+import dotenv from 'dotenv';
 import { defineConfig } from '@playwright/test';
+
+dotenv.config();
+dotenv.config({ path: '.env.example', override: false });
 
 export default defineConfig({
   testDir: './tests',
+  testMatch: /(?:spec|test)\.[cm]?[jt]sx?$/,
 
   timeout: 30 * 1000,
 
@@ -75,4 +80,3 @@ export default defineConfig({
     */
   ],
 });
-

@@ -1,14 +1,27 @@
 import { test, expect } from '@playwright/test';
 import testData from './ascent-login-data.json';
 
+function requireEnv(name) {
+    const value = process.env[name];
+
+    if (!value || !value.trim()) {
+        throw new Error(`Missing required environment variable ${name}. Copy .env.example to .env and set its value.`);
+    }
+
+    return value;
+}
+
 for (const data of testData.testCases) {
 
     test(data.scenario, async ({ browser }) => {
 
+        const appUrl = requireEnv('APP_URL');
+        const username = requireEnv('APP_USERNAME');
+        const password = requireEnv('APP_PASSWORD');
         const context = await browser.newContext();
         const page = await context.newPage();
 
-        await page.goto('http://192.168.11.31:5173/login');
+        await page.goto(appUrl);
 
         // Company Code
         await page.locator('input[name="companyCode"]')
@@ -16,11 +29,11 @@ for (const data of testData.testCases) {
 
         // Username
         await page.locator('input[name="username"]')
-            .fill(data.username);
+            .fill(username);
 
         // Password
         await page.locator('input[name="password"]')
-            .fill(data.password);
+            .fill(password);
 
         // Captcha
         const code = await page.locator('div.font-mono').innerText();
