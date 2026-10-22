@@ -19,7 +19,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/SaranrajKumaar/Playwright-End-to-End-framework.git'
+                    url: 'https://github.com/SaranrajKumaar/Paywright-framework-with-JS-with-all-the-locator-.git'
             }
         }
 
